@@ -10,7 +10,7 @@ const App = () => {
   }, []);
 
   async function getUsers() {
-    const { data } = await supabase.from("test").select();
+    const { data }: any = await supabase.from("test").select();
     setUsers(data);
   }
 
@@ -18,7 +18,7 @@ const App = () => {
     <View style={styles.container}>
       <FlatList
         data={users}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item: any) => item.id.toString()}
         renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
       />
     </View>
